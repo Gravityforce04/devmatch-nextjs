@@ -1,61 +1,17 @@
 import Image from "next/image";
-import { ConnectButton, useContractEvents, useReadContract, } from "thirdweb/react";
-import {useContract} from "@thirdweb-dev/react";
+import { ConnectButton, } from "thirdweb/react";
+import {useContract, useContractRead} from "@thirdweb-dev/react";
 import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
 import { useState } from "react";
 
 export default function Home() {
 
-  // const { contract } = useContract("0xc3eF77D1Bd8cEa5B3A64a6d122fdcB12465B62cB");
-  // const [applicationId, setApplicationId] = useState(0);
-  // const [amount, setAmount] = useState(0);
+  const { contract } = useContract("0xc3eF77D1Bd8cEa5B3A64a6d122fdcB12465B62cB");
+  const [applicationId, setApplicationId] = useState(0);
+  const [amount, setAmount] = useState(0);
 
-  // // Add a function to fund the contract
-  // const fundContract = async (amount: number) => {
-  //   try {
-  //     await contract.call("fundContract", amount);
-  //   } catch (error) {
-  //     console.error("Failed to fund contract", error);
-  //   }
-  // };
 
-  // // Add a function to submit an application
-  // const submitApplication = async (ic: string, amount: number) => {
-  //   try {
-  //     const id = await contract.call("submitApplication", ic, amount);
-  //     setApplicationId(id); // Store the application ID for later use
-  //   } catch (error) {
-  //     console.error("Failed to submit application", error);
-  //   }
-  // };
-
-  // // Add a function to verify an application
-  // const verifyApplication = async (id: number) => {
-  //   try {
-  //     await contract.call("verifyApplication", id);
-  //   } catch (error) {
-  //     console.error("Failed to verify application", error);
-  //   }
-  // };
-
-  // // Add a function to sign an application
-  // const signApplication = async (id: number) => {
-  //   try {
-  //     await contract.call("signApplication", id);
-  //   } catch (error) {
-  //     console.error("Failed to sign application", error);
-  //   }
-  // };
-
-  // // Add a function to claim the allowance
-  // const claimAllowance = async (id: number) => {
-  //   try {
-  //     await contract.call("claimAllowance", id);
-  //   } catch (error) {
-  //     console.error("Failed to claim allowance", error);
-  //   }
-  // };
 
   return (
     <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
