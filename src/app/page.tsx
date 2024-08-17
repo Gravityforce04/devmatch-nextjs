@@ -1,9 +1,62 @@
 import Image from "next/image";
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, useContractEvents, useReadContract, } from "thirdweb/react";
+import {useContract} from "@thirdweb-dev/react";
 import thirdwebIcon from "@public/thirdweb.svg";
 import { client } from "./client";
+import { useState } from "react";
 
 export default function Home() {
+
+  // const { contract } = useContract("0xc3eF77D1Bd8cEa5B3A64a6d122fdcB12465B62cB");
+  // const [applicationId, setApplicationId] = useState(0);
+  // const [amount, setAmount] = useState(0);
+
+  // // Add a function to fund the contract
+  // const fundContract = async (amount: number) => {
+  //   try {
+  //     await contract.call("fundContract", amount);
+  //   } catch (error) {
+  //     console.error("Failed to fund contract", error);
+  //   }
+  // };
+
+  // // Add a function to submit an application
+  // const submitApplication = async (ic: string, amount: number) => {
+  //   try {
+  //     const id = await contract.call("submitApplication", ic, amount);
+  //     setApplicationId(id); // Store the application ID for later use
+  //   } catch (error) {
+  //     console.error("Failed to submit application", error);
+  //   }
+  // };
+
+  // // Add a function to verify an application
+  // const verifyApplication = async (id: number) => {
+  //   try {
+  //     await contract.call("verifyApplication", id);
+  //   } catch (error) {
+  //     console.error("Failed to verify application", error);
+  //   }
+  // };
+
+  // // Add a function to sign an application
+  // const signApplication = async (id: number) => {
+  //   try {
+  //     await contract.call("signApplication", id);
+  //   } catch (error) {
+  //     console.error("Failed to sign application", error);
+  //   }
+  // };
+
+  // // Add a function to claim the allowance
+  // const claimAllowance = async (id: number) => {
+  //   try {
+  //     await contract.call("claimAllowance", id);
+  //   } catch (error) {
+  //     console.error("Failed to claim allowance", error);
+  //   }
+  // };
+
   return (
     <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
       <div className="py-20">
@@ -18,8 +71,6 @@ export default function Home() {
             }}
           />
         </div>
-
-        <ThirdwebResources />
       </div>
     </main>
   );
@@ -38,45 +89,18 @@ function Header() {
       />
 
       <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
-        thirdweb SDK
-        <span className="text-zinc-300 inline-block mx-1"> + </span>
-        <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span>
+        JomClaim
+        {/* <span className="text-zinc-300 inline-block mx-1"> + </span>
+        <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span> */}
       </h1>
 
       <p className="text-zinc-300 text-base">
-        Read the{" "}
-        <code className="bg-zinc-800 text-zinc-300 px-2 rounded py-1 text-sm mx-1">
-          README.md
-        </code>{" "}
-        file to get started.
+        One claim , in one click.
       </p>
     </header>
   );
 }
 
-function ThirdwebResources() {
-  return (
-    <div className="grid gap-4 lg:grid-cols-3 justify-center">
-      <ArticleCard
-        title="thirdweb SDK Docs"
-        href="https://portal.thirdweb.com/typescript/v5"
-        description="thirdweb TypeScript SDK documentation"
-      />
-
-      <ArticleCard
-        title="Components and Hooks"
-        href="https://portal.thirdweb.com/typescript/v5/react"
-        description="Learn about the thirdweb React components and hooks in thirdweb SDK"
-      />
-
-      <ArticleCard
-        title="thirdweb Dashboard"
-        href="https://thirdweb.com/dashboard"
-        description="Deploy, configure, and manage your smart contracts from the dashboard."
-      />
-    </div>
-  );
-}
 
 function ArticleCard(props: {
   title: string;
